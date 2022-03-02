@@ -9,7 +9,7 @@ This project was created with the objective of learning new technologies that ar
 
 ### Live
 - [Web Application](https://future-store-omega.vercel.app/)
-- [GraphQL API](https://future-store-api.vercel.app/)
+- [GraphQL API](https://future-store-api.vercel.app/api/graphql)
 
 ### Build with
 

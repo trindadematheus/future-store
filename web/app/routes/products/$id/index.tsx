@@ -14,8 +14,8 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 
-import { ButtonBuy } from "~/components/ButtonBuy";
-import HeaderMenu from "~/components/HeaderMenu";
+import { ButtonBuy } from "~/components/core/ButtonBuy";
+import HeaderMenu from "~/components/shared/HeaderMenu";
 
 export default function Product() {
   return (

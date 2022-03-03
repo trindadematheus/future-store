@@ -1,15 +1,17 @@
-# 🛒 future shop
-> the future of ecommerce
+# 🛒 future store
 
+> the future of ecommerce
 
 <br />
 
 ## Live on
+
 https://future-shop.vercel.app/
 
 <br />
 
-##  Features
+## Features
+
 - [x] Ecommerce interface with Remix.run and Chakra UI
 - [x] Connect to wallet
 - [x] Buy/transfer token from wallet

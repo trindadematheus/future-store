@@ -10,7 +10,7 @@ import type { MetaFunction } from "remix";
 import { ChakraProvider } from "@chakra-ui/react";
 import { LinksFunction } from "@remix-run/react/routeModules";
 
-import { DarkModeSwitch } from "./components/DarkModeSwitch";
+import { DarkModeSwitch } from "./components/core/DarkModeSwitch";
 import { WalletProvider } from "./hooks/use-wallet";
 
 export const meta: MetaFunction = () => {

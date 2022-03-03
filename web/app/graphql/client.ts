@@ -1,7 +1,5 @@
 import { GraphQLClient } from "graphql-request";
 
-const client = new GraphQLClient(
-  "https://future-shop-api.vercel.app/api/graphql"
-);
+const client = new GraphQLClient("http://localhost:3001/api/graphql");
 
 export default client;

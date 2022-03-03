@@ -1,7 +1,7 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 
-import HeaderMenu from "~/components/HeaderMenu";
+import HeaderMenu from "~/components/shared/HeaderMenu";
 
 function Success() {
   return (

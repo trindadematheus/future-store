@@ -19,7 +19,7 @@ export default function Carousel() {
 
   const cards = [
     {
-      title: "welcome to future shop",
+      title: "welcome to the future",
       text: "see our releases for the year 2077",
       image:
         "https://images.unsplash.com/photo-1542507637-d426b58194d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",

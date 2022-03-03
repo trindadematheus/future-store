@@ -26,7 +26,7 @@ import {
 import { Link as RemixLink } from "remix";
 
 import { useWallet } from "~/hooks/use-wallet";
-import { MetaMaskLogo } from "./MetaMaskLogo";
+import { MetaMaskLogo } from "../core/MetaMaskLogo";
 
 interface HeaderMenuProps {
   backButton?: boolean;
@@ -95,7 +95,7 @@ export default function HeaderMenu({ backButton }: HeaderMenuProps) {
                     color="pink"
                     mr={6}
                   >
-                    future shop
+                    future store
                   </Text>
                 </RemixLink>
               )}

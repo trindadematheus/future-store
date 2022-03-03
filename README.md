@@ -1,4 +1,4 @@
-# 👜 new-store
+# 👜 Future Store
 
 ### About
 Here at New Store, we have the best in women's, men's, bags, shoes, accessories and more. Unmissable discounts and installments. Buy all with your blockchain wallet
@@ -7,9 +7,9 @@ Here at New Store, we have the best in women's, men's, bags, shoes, accessories 
 
 This project was created with the objective of learning new technologies that are coming to the market: Remix, Chakra, Relay and web3
 
-### Live on
-- [Web Application](https://future-shop.vercel.app/)
-- [GraphQL API](https://future-shop.vercel.app/)
+### Live
+- [Web Application](https://future-store-omega.vercel.app/)
+- [GraphQL API](https://future-store-api.vercel.app/api/graphql)
 
 ### Build with
 

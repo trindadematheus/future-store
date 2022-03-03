@@ -5,7 +5,7 @@ Here at New Store, we have the best in women's, men's, bags, shoes, accessories 
 
 > 🚫 **This is a project created for personal studies only**
 
-This project was created with the objective of learning new technologies that are coming to the market: Remix, Chakra, Relay and web3
+This project was created with the objective of learning new technologies that are coming to the market: Remix, Chakra and web3
 
 ### Live
 - [Web Application](https://future-store-omega.vercel.app/)
@@ -16,7 +16,6 @@ This project was created with the objective of learning new technologies that ar
 - [Remix](https://remix.run/) - Focused on web fundamentals and modern UX, you’re simply going to build better websites
 - [Chakra UI](https://chakra-ui.com/) - Component library that gives you the building blocks you need to build your React applications
 - [GraphQL](https://graphql.org/) - Query language for APIs and a runtime for fulfilling those queries with your existing data
-- [Relay](https://relay.dev/) - The GraphQL client that scales with you
 - [web3modal](https://github.com/Web3Modal/web3modal) - A single Web3 / Ethereum provider solution for all Wallets
 - [ethers](https://docs.ethers.io/v5/) - Complete and compact library for interacting with the Ethereum Blockchain and its ecosystem
 

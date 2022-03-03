@@ -5,7 +5,7 @@ Here at New Store, we have the best in women's, men's, bags, shoes, accessories 
 
 > 🚫 **This is a project created for personal studies only**
 
-This project was created with the objective of learning new technologies that are coming to the market: Remix, Chakra and web3
+This project was created with the objective of learning new technologies
 
 ### Live
 - [Web Application](https://future-store-omega.vercel.app/)

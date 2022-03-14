@@ -8,7 +8,7 @@ Here at New Store, we have the best in women's, men's, bags, shoes, accessories 
 This project was created with the objective of learning new technologies
 
 ### Live
-- [Web Application](https://future-store-omega.vercel.app/)
+- [Web Application](https://future-store.matheustrindade.dev.br/)
 - [GraphQL API](https://future-store-api.vercel.app/api/graphql)
 
 ### Build with

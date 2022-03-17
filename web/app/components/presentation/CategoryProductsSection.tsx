@@ -13,7 +13,12 @@ function CategoryProductsSection({ category }: CategoryProductsSectionProps) {
     <>
       <Box>
         <Flex justifyContent="space-between">
-          <Text fontSize={18} fontWeight="bold" as="span">
+          <Text
+            fontSize={18}
+            textTransform="capitalize"
+            fontWeight="bold"
+            as="span"
+          >
             {category.name}
           </Text>
 

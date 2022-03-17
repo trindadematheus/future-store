@@ -6,7 +6,7 @@ import HeaderMenu from "~/components/shared/HeaderMenu";
 function Success() {
   return (
     <>
-      <HeaderMenu backButton />
+      <HeaderMenu />
 
       <Box textAlign="center" mt={40} py={10} px={6}>
         <CheckCircleIcon boxSize={"50px"} color={"green.500"} />

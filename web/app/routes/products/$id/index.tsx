@@ -20,7 +20,7 @@ import HeaderMenu from "~/components/shared/HeaderMenu";
 export default function Product() {
   return (
     <>
-      <HeaderMenu backButton />
+      <HeaderMenu />
 
       <Container maxW={"7xl"}>
         <SimpleGrid

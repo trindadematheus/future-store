@@ -10,6 +10,7 @@ import Newsletter from "~/components/presentation/Newsletter";
 
 import client from "~/graphql/client";
 import { QUERY_HOME } from "~/graphql/queries/home";
+import DiscountBar from "~/components/presentation/DiscountBar";
 
 export let loader: LoaderFunction = async () => {
   const { categories } = await client.request(QUERY_HOME, {
@@ -26,8 +27,9 @@ function Home() {
 
   return (
     <>
-      <Carousel />
+      <DiscountBar />
       <HeaderMenu />
+      <Carousel />
       <ListCategoriesProducts categories={categories} />
       <Feedback />
       <Newsletter />

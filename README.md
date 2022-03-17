@@ -5,6 +5,8 @@ Here at New Store, we have the best in women's, men's, bags, shoes, accessories 
 
 > 🚫 **This is a project created for personal studies only**
 
+![screenshot](https://raw.githubusercontent.com/trindadematheus/future-store/master/screenshot.png)
+
 This project was created with the objective of learning new technologies
 
 ### Live

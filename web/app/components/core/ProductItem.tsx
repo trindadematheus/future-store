@@ -7,6 +7,7 @@ import {
   Icon,
   chakra,
   Tooltip,
+  Text,
 } from "@chakra-ui/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FiHeart } from "react-icons/fi";
@@ -53,7 +54,7 @@ function ProductItem({ product }: ProductItemProps) {
           objectFit="cover"
         />
 
-        <Box p="6">
+        <Box bg={useColorModeValue("gray.50", "gray.700")} p="6">
           <Flex mt="1" justifyContent="space-between" alignContent="center">
             <Box
               fontSize="xl"
@@ -75,20 +76,15 @@ function ProductItem({ product }: ProductItemProps) {
             </Tooltip>
           </Flex>
 
-          <Flex mt="3" justifyContent="space-between" alignContent="center">
-            <Rating
-              rating={Math.floor(Math.random() * (5 - 2)) + 2}
-              numReviews={Math.floor(Math.random() * (100 - 50)) + 50}
-            />
-            <Box
-              fontSize="medium"
-              color={useColorModeValue("gray.800", "white")}
-            >
-              <Box as="span" color={"cyan"}>
-                <Icon as={FaEthereum} />
-              </Box>
+          <Rating
+            rating={Math.floor(Math.random() * (5 - 2)) + 2}
+            numReviews={Math.floor(Math.random() * (100 - 50)) + 50}
+          />
+          <Flex mt={2} alignItems="center">
+            <FaEthereum size={14} />
+            <Text color={useColorModeValue("gray.800", "white")} fontSize="lg">
               {0.000066}
-            </Box>
+            </Text>
           </Flex>
         </Box>
       </Box>
@@ -110,15 +106,20 @@ function Rating({ rating, numReviews }: RatingProps) {
           const roundedRating = Math.round(rating * 2) / 2;
           if (roundedRating - i >= 1) {
             return (
-              <BsStarFill key={i} style={{ marginLeft: "1" }} color="cyan" />
+              <BsStarFill
+                size={10}
+                key={i}
+                style={{ marginLeft: "1" }}
+                color="cyan"
+              />
             );
           }
           if (roundedRating - i === 0.5) {
-            return <BsStarHalf key={i} style={{ marginLeft: "1" }} />;
+            return <BsStarHalf size={10} key={i} style={{ marginLeft: "1" }} />;
           }
-          return <BsStar key={i} style={{ marginLeft: "1" }} />;
+          return <BsStar size={10} key={i} style={{ marginLeft: "1" }} />;
         })}
-      <Box as="span" ml="2" color="gray.600" fontSize="sm">
+      <Box as="span" ml="2" color="gray.600" fontSize="small">
         {numReviews} review{numReviews > 1 && "s"}
       </Box>
     </Box>

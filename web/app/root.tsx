@@ -14,7 +14,7 @@ import { DarkModeSwitch } from "./components/core/DarkModeSwitch";
 import { WalletProvider } from "./hooks/use-wallet";
 
 export const meta: MetaFunction = () => {
-  return { title: "welcome to future" };
+  return { title: "Future Store - Welcome to Future" };
 };
 
 export const links: LinksFunction = () => [
@@ -34,6 +34,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="Next-gen e-commerce" />
         <Meta />
         <Links />
       </head>

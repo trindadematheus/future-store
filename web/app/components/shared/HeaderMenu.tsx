@@ -21,6 +21,7 @@ import {
   InputGroup,
   InputRightElement,
   HStack,
+  css,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -33,6 +34,7 @@ import {
 import { useWallet } from "~/hooks/use-wallet";
 import { MetaMaskLogo } from "../core/MetaMaskLogo";
 import { Link as LinkRemix } from "remix";
+import { FaBell, FaCartArrowDown, FaCartPlus } from "react-icons/fa";
 
 export default function HeaderMenu() {
   const { isOpen, onToggle } = useDisclosure();
@@ -114,28 +116,54 @@ const TopSideBar = () => {
                 FUTURE STORE
               </Heading>
             </LinkRemix>
-            <InputGroup width="xl">
+            <InputGroup width="2xl">
               <Input placeholder="What are you looking for?" />
               <InputRightElement children={<SearchIcon color="cyan.500" />} />
             </InputGroup>
           </Flex>
 
-          <Tooltip label={account ? "Disconnect Wallet" : ""}>
-            <Button
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"md"}
-              fontWeight={600}
-              colorScheme="cyan"
-              bg="cyan.100"
-              color="cyan.800"
-              leftIcon={<MetaMaskLogo width={20} height={20} />}
-              onClick={handleConnectOrDisconnect}
-            >
-              {account
-                ? `${account.address.substring(0, 11)}...`
-                : "Connect Wallet"}
-            </Button>
-          </Tooltip>
+          <HStack>
+            <IconButton
+              aria-label={"Notifications"}
+              icon={
+                <>
+                  <FaCartPlus color={"gray.750"} />
+                  <Box
+                    as={"span"}
+                    color={"white"}
+                    position={"absolute"}
+                    top={"-2px"}
+                    right={"-2px"}
+                    fontSize={"0.8rem"}
+                    bgColor={"red"}
+                    borderRadius={"lg"}
+                    width={4}
+                    zIndex={1}
+                    p={"1px"}
+                  >
+                    {0}
+                  </Box>
+                </>
+              }
+            />
+
+            <Tooltip label={account ? "Disconnect Wallet" : ""}>
+              <Button
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"md"}
+                fontWeight={600}
+                colorScheme="cyan"
+                bg="cyan.100"
+                color="cyan.800"
+                leftIcon={<MetaMaskLogo width={20} height={20} />}
+                onClick={handleConnectOrDisconnect}
+              >
+                {account
+                  ? `${account.address.substring(0, 11)}...`
+                  : "Connect Wallet"}
+              </Button>
+            </Tooltip>
+          </HStack>
         </Flex>
       </Container>
       <hr />

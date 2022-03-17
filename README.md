@@ -1,6 +1,5 @@
 # 👜 Future Store
 
-### About
 Here at New Store, we have the best in women's, men's, bags, shoes, accessories and more. Unmissable discounts and installments. Buy all with your blockchain wallet
 
 > 🚫 **This is a project created for personal studies only**

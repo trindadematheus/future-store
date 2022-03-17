@@ -13,51 +13,65 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react";
+import { LoaderFunction, useLoaderData } from "remix";
 
 import { ButtonBuy } from "~/components/core/ButtonBuy";
 import HeaderMenu from "~/components/shared/HeaderMenu";
+import client from "~/graphql/client";
+import { QUERY_PRODUCT_BY_ID } from "~/graphql/queries/products";
+import { Product } from "~/types/product";
+
+export let loader: LoaderFunction = async (data) => {
+  const { product } = await client.request(QUERY_PRODUCT_BY_ID, {
+    productId: data.params.id,
+  });
+
+  return {
+    product,
+  };
+};
+
+type LoaderData = {
+  product: Product;
+};
 
 export default function Product() {
+  let { product } = useLoaderData<LoaderData>();
+
   return (
     <>
-      <HeaderMenu backButton />
+      <HeaderMenu />
 
       <Container maxW={"7xl"}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
-          py={{ base: 18, md: 24 }}
+          py={{ base: 18, md: 20 }}
         >
           <Flex>
             <Image
               rounded={"md"}
               alt={"product image"}
-              src={
-                "https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080"
-              }
+              src={product.image}
               fit={"cover"}
               align={"center"}
               position="sticky"
-              top={20}
+              top={40}
               w={"100%"}
               h={{ base: "100%", sm: "400px", lg: "500px" }}
             />
           </Flex>
-          <Stack spacing={{ base: 6, md: 10 }}>
+          <Stack spacing={{ base: 2, md: 6 }}>
             <Box as={"header"}>
-              <Heading
-                lineHeight={1.1}
-                fontWeight={600}
-                fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
-              >
-                Automatic Watch
+              <Heading lineHeight={1.1} fontWeight={600} fontSize="3xl">
+                {product.title}
               </Heading>
               <Text
                 color={useColorModeValue("gray.900", "gray.400")}
                 fontWeight={300}
                 fontSize={"2xl"}
               >
-                $350.00 USD
+                ETH 0.000066
               </Text>
             </Box>
 
@@ -70,20 +84,28 @@ export default function Product() {
                 />
               }
             >
-              <VStack spacing={{ base: 4, sm: 6 }}>
+              <VStack spacing={4}>
                 <Text
                   color={useColorModeValue("gray.500", "gray.400")}
-                  fontSize={"2xl"}
+                  fontSize={"lg"}
                   fontWeight={"300"}
                 >
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod tempor invidunt ut labore
                 </Text>
-                <Text fontSize={"lg"}>
+                <Text fontSize={"md"}>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
                   aliquid amet at delectus doloribus dolorum expedita hic, ipsum
                   maxime modi nam officiis porro, quae, quisquam quos
                   reprehenderit velit? Natus, totam.
+                </Text>
+
+                <br />
+
+                <ButtonBuy productId="1" />
+
+                <Text fontWeight="bold" color="red">
+                  you will NOT receive any products when you make this purchase
                 </Text>
               </VStack>
               <Box>
@@ -97,18 +119,7 @@ export default function Product() {
                   Features
                 </Text>
 
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                  <List spacing={2}>
-                    <ListItem>Chronograph</ListItem>
-                    <ListItem>Master Chronometer Certified</ListItem>{" "}
-                    <ListItem>Tachymeter</ListItem>
-                  </List>
-                  <List spacing={2}>
-                    <ListItem>Anti‑magnetic</ListItem>
-                    <ListItem>Chronometer</ListItem>
-                    <ListItem>Small seconds</ListItem>
-                  </List>
-                </SimpleGrid>
+                {product.description}
               </Box>
               <Box>
                 <Text
@@ -168,12 +179,6 @@ export default function Product() {
                 </List>
               </Box>
             </Stack>
-
-            <ButtonBuy productId="1" />
-
-            <Text fontWeight="bold" color="red">
-              you will NOT receive any products when you make your purchase.
-            </Text>
           </Stack>
         </SimpleGrid>
       </Container>

@@ -16,25 +16,86 @@ import {
   useDisclosure,
   Container,
   Tooltip,
+  Heading,
+  Input,
+  InputGroup,
+  InputRightElement,
+  HStack,
+  css,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  SearchIcon,
 } from "@chakra-ui/icons";
-import { Link as RemixLink } from "remix";
 
 import { useWallet } from "~/hooks/use-wallet";
 import { MetaMaskLogo } from "../core/MetaMaskLogo";
+import { Link as LinkRemix } from "remix";
+import { FaBell, FaCartArrowDown, FaCartPlus } from "react-icons/fa";
 
-interface HeaderMenuProps {
-  backButton?: boolean;
-}
-
-export default function HeaderMenu({ backButton }: HeaderMenuProps) {
+export default function HeaderMenu() {
   const { isOpen, onToggle } = useDisclosure();
 
+  return (
+    <>
+      <Box
+        zIndex="1"
+        position="sticky"
+        top="0"
+        bg={useColorModeValue("white", "gray.800")}
+        borderBottom={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+      >
+        <TopSideBar />
+        <Container maxW="container.xl">
+          <Box>
+            <Flex
+              color={useColorModeValue("gray.600", "white")}
+              minH={"60px"}
+              py={{ base: 2 }}
+              align={"center"}
+            >
+              <Flex
+                flex={{ base: 1, md: "auto" }}
+                ml={{ base: -2 }}
+                display={{ base: "flex", md: "none" }}
+              >
+                <IconButton
+                  onClick={onToggle}
+                  icon={
+                    isOpen ? (
+                      <CloseIcon w={3} h={3} />
+                    ) : (
+                      <HamburgerIcon w={5} h={5} />
+                    )
+                  }
+                  variant={"ghost"}
+                  aria-label={"Toggle Navigation"}
+                />
+              </Flex>
+              <Flex
+                flex={{ base: 1 }}
+                justify={{ base: "center", md: "start" }}
+              >
+                <DesktopNav />
+              </Flex>
+            </Flex>
+
+            <Collapse in={isOpen} animateOpacity>
+              <MobileNav />
+            </Collapse>
+          </Box>
+        </Container>
+      </Box>
+    </>
+  );
+}
+
+const TopSideBar = () => {
   const { connectWallet, account, disconnectWallet } = useWallet();
 
   function handleConnectOrDisconnect() {
@@ -46,89 +107,69 @@ export default function HeaderMenu({ backButton }: HeaderMenuProps) {
   }
 
   return (
-    <Box
-      zIndex="1"
-      position="sticky"
-      top="0"
-      bg={useColorModeValue("white", "gray.800")}
-      borderBottom={1}
-      borderStyle={"solid"}
-      borderColor={useColorModeValue("gray.200", "gray.900")}
-    >
-      <Container maxW="container.xl">
-        <Box>
-          <Flex
-            color={useColorModeValue("gray.600", "white")}
-            minH={"60px"}
-            py={{ base: 2 }}
-            px={{ base: 4 }}
-            align={"center"}
-          >
-            <Flex
-              flex={{ base: 1, md: "auto" }}
-              ml={{ base: -2 }}
-              display={{ base: "flex", md: "none" }}
-            >
-              <IconButton
-                onClick={onToggle}
-                icon={
-                  isOpen ? (
-                    <CloseIcon w={3} h={3} />
-                  ) : (
-                    <HamburgerIcon w={5} h={5} />
-                  )
-                }
-                variant={"ghost"}
-                aria-label={"Toggle Navigation"}
-              />
-            </Flex>
-            <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-              {backButton && (
-                <RemixLink to="/">
-                  <Text
-                    textAlign={useBreakpointValue({
-                      base: "center",
-                      md: "left",
-                    })}
-                    fontFamily={"heading"}
-                    fontWeight="extrabold"
-                    color="pink"
-                    mr={6}
+    <>
+      <Container px={6} py={6} maxW="container.xl">
+        <Flex justifyContent="space-between" alignItems="center">
+          <Flex alignItems="center">
+            <LinkRemix to="/">
+              <Heading mr={6} size="md">
+                FUTURE STORE
+              </Heading>
+            </LinkRemix>
+            <InputGroup width="2xl">
+              <Input placeholder="What are you looking for?" />
+              <InputRightElement children={<SearchIcon color="cyan.500" />} />
+            </InputGroup>
+          </Flex>
+
+          <HStack>
+            <IconButton
+              aria-label={"Notifications"}
+              icon={
+                <>
+                  <FaCartPlus color={"cyan.500"} />
+                  <Box
+                    as={"span"}
+                    color={"white"}
+                    position={"absolute"}
+                    top={"-2px"}
+                    right={"-2px"}
+                    fontSize={"0.8rem"}
+                    bgColor={"cyan.700"}
+                    borderRadius={"lg"}
+                    width={4}
+                    zIndex={1}
+                    p={"1px"}
                   >
-                    future store
-                  </Text>
-                </RemixLink>
-              )}
+                    {0}
+                  </Box>
+                </>
+              }
+            />
 
-              <Flex display={{ base: "none", md: "flex" }}>
-                <DesktopNav />
-              </Flex>
-            </Flex>
-
-            <Tooltip label={account ? "disconnect wallet" : ""}>
+            <Tooltip label={account ? "Disconnect Wallet" : ""}>
               <Button
                 display={{ base: "none", md: "inline-flex" }}
-                fontSize={"sm"}
+                fontSize={"md"}
                 fontWeight={600}
                 colorScheme="cyan"
+                bg="cyan.100"
+                color="cyan.800"
                 leftIcon={<MetaMaskLogo width={20} height={20} />}
                 onClick={handleConnectOrDisconnect}
               >
                 {account
                   ? `${account.address.substring(0, 11)}...`
-                  : "connect wallet"}
+                  : "Connect Wallet"}
               </Button>
             </Tooltip>
-          </Flex>
-
-          <Collapse in={isOpen} animateOpacity>
-            <MobileNav />
-          </Collapse>
-        </Box>
+          </HStack>
+        </Flex>
       </Container>
-    </Box>
+      <hr />
+    </>
   );
-}
+};
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
@@ -145,8 +186,8 @@ const DesktopNav = () => {
                 p={2}
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
+                fontWeight={navItem.isFeatured ? 700 : 500}
+                color={navItem.isFeatured ? "cyan.700" : linkColor}
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -185,7 +226,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       href={href}
       role={"group"}
       display={"block"}
-      p={2}
+      // p={2}
       rounded={"md"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
     >
@@ -288,73 +329,80 @@ interface NavItem {
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
+  isFeatured?: boolean;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "upside",
+    label: "All categories",
+    isFeatured: true,
     children: [
       {
-        label: "t-shirt",
-        subLabel: "See all t-shirt",
+        label: "Upside",
+        subLabel: "T-shirt, Jackets and Dresses",
         href: "#",
       },
       {
-        label: "jackets",
-        subLabel: "See all jackets",
+        label: "Bottom",
+        subLabel: "Pants, Shorts and Shoes",
         href: "#",
       },
       {
-        label: "dresses",
-        subLabel: "See all dresses",
+        label: "Accessories",
+        subLabel: "Glasses, Chains, Bracelets and Bags",
         href: "#",
       },
     ],
   },
   {
-    label: "bottom",
-    children: [
-      {
-        label: "pants",
-        subLabel: "See all pants",
-        href: "#",
-      },
-      {
-        label: "shorts",
-        subLabel: "See all shorts",
-        href: "#",
-      },
-      {
-        label: "shoes",
-        subLabel: "See all shoes",
-        href: "#",
-      },
-    ],
+    label: "T-shirts",
+    subLabel: "See all t-shirt",
+    href: "#",
   },
   {
-    label: "accessories",
-    children: [
-      {
-        label: "glasses",
-        subLabel: "See all glasses",
-        href: "#",
-      },
-      {
-        label: "chains",
-        subLabel: "See all chains",
-        href: "#",
-      },
-      {
-        label: "bracelets",
-        subLabel: "See all bracelets",
-        href: "#",
-      },
-      {
-        label: "bags",
-        subLabel: "See all bags",
-        href: "#",
-      },
-    ],
+    label: "Jackets",
+    subLabel: "See all jackets",
+    href: "#",
+  },
+  {
+    label: "Dresses",
+    subLabel: "See all dresses",
+    href: "#",
+  },
+  {
+    label: "Pants",
+    subLabel: "See all pants",
+    href: "#",
+  },
+  {
+    label: "Shorts",
+    subLabel: "See all shorts",
+    href: "#",
+  },
+  {
+    label: "Shoes",
+    subLabel: "See all shoes",
+    href: "#",
+  },
+  {
+    label: "Glasses",
+    subLabel: "See all glasses",
+    href: "#",
+  },
+  {
+    label: "Chains",
+    subLabel: "See all chains",
+    href: "#",
+  },
+  {
+    label: "Bracelets",
+    subLabel: "See all bracelets",
+    href: "#",
+  },
+  {
+    label: "Bags",
+    subLabel: "See all bags",
+    href: "#",
   },
   // {
   //   label: "Hire Designers",

@@ -12,13 +12,24 @@ function CategoryProductsSection({ category }: CategoryProductsSectionProps) {
   return (
     <>
       <Box>
-        <Flex justifyContent="space-between">
-          <Text fontSize={18} fontWeight="bold" as="span">
+        <Flex alignItems="flex-end">
+          <Text
+            fontSize={18}
+            textTransform="capitalize"
+            fontWeight="bold"
+            as="span"
+            mr={2}
+          >
             {category.name}
           </Text>
 
           <Link to="/">
-            <Button fontWeight="normal" colorScheme="teal" variant="link">
+            <Button
+              mb={1}
+              fontWeight="normal"
+              colorScheme="teal"
+              variant="link"
+            >
               see more
             </Button>
           </Link>

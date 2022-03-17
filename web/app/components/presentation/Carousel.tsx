@@ -49,28 +49,13 @@ export default function Carousel() {
         {cards.map((card, index) => (
           <Box
             key={index}
-            height={"6xl"}
+            height={"4xl"}
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image})`}
-          >
-            <Container maxW="container.xl" height="600px" position="relative">
-              <Stack
-                spacing={6}
-                w={"full"}
-                position="absolute"
-                top="50%"
-                transform="translate(0, -50%)"
-              >
-                <Heading fontSize="6xl">{card.title}</Heading>
-                <Text m="0" color="white">
-                  {card.text}
-                </Text>
-              </Stack>
-            </Container>
-          </Box>
+          />
         ))}
       </Slider>
     </Box>

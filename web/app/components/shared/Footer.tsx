@@ -8,6 +8,7 @@ import {
   Flex,
   Tag,
   useColorModeValue,
+  Heading,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
@@ -48,10 +49,10 @@ export default function Footer() {
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
-            <ListHeader>Product</ListHeader>
-            <Link href={"#"}>Overview</Link>
+            <ListHeader>Categories</ListHeader>
+            <Link href={"#"}>Upside</Link>
             <Stack direction={"row"} align={"center"} spacing={2}>
-              <Link href={"#"}>Features</Link>
+              <Link href={"#"}>Accessories</Link>
               <Tag
                 size={"sm"}
                 bg={useColorModeValue("green.300", "green.800")}
@@ -61,25 +62,21 @@ export default function Footer() {
                 New
               </Tag>
             </Stack>
-            <Link href={"#"}>Tutorials</Link>
-            <Link href={"#"}>Pricing</Link>
-            <Link href={"#"}>Releases</Link>
+            <Link href={"#"}>Bottom</Link>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Company</ListHeader>
-            <Link href={"#"}>About Us</Link>
-            <Link href={"#"}>Press</Link>
-            <Link href={"#"}>Careers</Link>
-            <Link href={"#"}>Contact Us</Link>
-            <Link href={"#"}>Partners</Link>
+            <ListHeader>Most accessed</ListHeader>
+            <Link href={"#"}>T-shirts</Link>
+            <Link href={"#"}>Jackets</Link>
+            <Link href={"#"}>Pants</Link>
+            <Link href={"#"}>Shoes</Link>
+            <Link href={"#"}>Bags</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Legal</ListHeader>
             <Link href={"#"}>Cookies Policy</Link>
             <Link href={"#"}>Privacy Policy</Link>
             <Link href={"#"}>Terms of Service</Link>
-            <Link href={"#"}>Law Enforcement</Link>
-            <Link href={"#"}>Status</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
@@ -109,10 +106,10 @@ export default function Footer() {
             ml: 8,
           }}
         >
-          <Logo />
+          <Heading size="md">FUTURE STORE</Heading>
         </Flex>
         <Text pt={6} fontSize={"sm"} textAlign={"center"}>
-          © 2020 Chakra Templates. All rights reserved
+          © 2020 FUTURE STORE. All rights reserved
         </Text>
       </Box>
     </Box>

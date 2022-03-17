@@ -127,7 +127,7 @@ const TopSideBar = () => {
               aria-label={"Notifications"}
               icon={
                 <>
-                  <FaCartPlus color={"gray.750"} />
+                  <FaCartPlus color={"cyan.500"} />
                   <Box
                     as={"span"}
                     color={"white"}
@@ -135,7 +135,7 @@ const TopSideBar = () => {
                     top={"-2px"}
                     right={"-2px"}
                     fontSize={"0.8rem"}
-                    bgColor={"red"}
+                    bgColor={"cyan.700"}
                     borderRadius={"lg"}
                     width={4}
                     zIndex={1}

@@ -17,12 +17,12 @@ import { Link } from "remix";
 import { Product } from "~/types/product";
 
 type ProductItemProps = {
-  product: Pick<Product, "title" | "image">;
+  product: Pick<Product, "id" | "title" | "image">;
 };
 
 function ProductItem({ product }: ProductItemProps) {
   return (
-    <Link to="/products/1">
+    <Link to={`/products/${product.id}`}>
       <Box
         bg={useColorModeValue("white", "gray.800")}
         maxW="sm"

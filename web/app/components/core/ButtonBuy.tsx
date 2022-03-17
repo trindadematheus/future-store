@@ -85,7 +85,7 @@ export const ButtonBuy = ({ productId }: ButtonBuyProps) => {
         onClick={handleConnectBuy}
       >
         {!account ? (
-          "connect wallet"
+          "Connect wallet to buy"
         ) : (
           <>
             Buy {productPrice} ETH

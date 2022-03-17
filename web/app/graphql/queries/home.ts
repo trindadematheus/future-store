@@ -5,6 +5,7 @@ export const QUERY_HOME = /* GraphQL */ `
       products {
         edges {
           node {
+            id
             title
             image
           }

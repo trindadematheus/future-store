@@ -32,6 +32,7 @@ import {
 
 import { useWallet } from "~/hooks/use-wallet";
 import { MetaMaskLogo } from "../core/MetaMaskLogo";
+import { Link as LinkRemix } from "remix";
 
 export default function HeaderMenu() {
   const { isOpen, onToggle } = useDisclosure();
@@ -108,9 +109,11 @@ const TopSideBar = () => {
       <Container px={6} py={6} maxW="container.xl">
         <Flex justifyContent="space-between" alignItems="center">
           <Flex alignItems="center">
-            <Heading mr={6} size="md">
-              FUTURE STORE
-            </Heading>
+            <LinkRemix to="/">
+              <Heading mr={6} size="md">
+                FUTURE STORE
+              </Heading>
+            </LinkRemix>
             <InputGroup width="xl">
               <Input placeholder="What are you looking for?" />
               <InputRightElement children={<SearchIcon color="cyan.500" />} />
